@@ -1,23 +1,25 @@
 <template>
   <v-app>
-    <v-toolbar app>
-
-    </v-toolbar>
+    <the-toolbar />
 
     <v-content>
       <v-container fluid>
-        <router-view></router-view>
+        <the-content />
       </v-container>
     </v-content>
-
-    <v-footer app>
-
-    </v-footer>
   </v-app>
 </template>
 
 <script>
+import TheToolbar from './components/TheToolbar.vue';
+import TheContent from './components/TheContent.vue';
+
 export default {
   name: 'App',
+
+  components: {
+    TheToolbar,
+    TheContent,
+  },
 };
 </script>
