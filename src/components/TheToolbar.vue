@@ -10,26 +10,18 @@
 
     <v-spacer />
 
-    <v-text-field
-      color="white"
-      solo flat
-      hide-details
-      placeholder="Search user..."
-      append-icon="search"
-
-      v-model="searchQuery"
-    />
+    <search-field />
   </v-toolbar>
 </template>
 
 <script>
+import SearchField from './SearchField.vue';
+
 export default {
   name: 'TheToolbar',
 
-  data() {
-    return {
-      searchQuery: '',
-    };
+  components: {
+    SearchField,
   },
 };
 </script>
