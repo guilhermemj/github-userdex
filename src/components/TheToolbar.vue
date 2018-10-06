@@ -14,7 +14,7 @@
       color="white"
       solo flat
       hide-details
-      placeholder="Search users..."
+      placeholder="Search user..."
       append-icon="search"
 
       v-model="searchQuery"

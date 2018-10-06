@@ -5,11 +5,13 @@ import Vue from 'vue';
 import App from './App.vue';
 import store from './store';
 
-import vuetify from './plugins/vuetify';
+import importAll from './helpers/import-all';
 
 Vue.config.productionTip = false;
 
-Vue.use(vuetify);
+const plugins = importAll(require.context('./plugins', false, /\.js/));
+
+plugins.forEach(plugin => Vue.use(plugin));
 
 new Vue({
   store,
