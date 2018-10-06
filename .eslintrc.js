@@ -14,4 +14,18 @@ module.exports = {
   parserOptions: {
     parser: 'babel-eslint',
   },
+  overrides: [
+    {
+      // Vuex stores
+      files: ['src/store/**/*.js'],
+      // Vuex is based on reassigning state inside mutations
+      rules: { 'no-param-reassign': 'off' },
+    },
+    {
+      // Unit tests
+      files: ['**/?(*.)+(spec|test).js?(x)'],
+      // Configure Jest env
+      env: { jest: true },
+    },
+  ],
 };
