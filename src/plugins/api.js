@@ -1,6 +1,3 @@
-/* eslint-disable no-param-reassign */
-import api from '../api';
+import Octokit from '@octokit/rest';
 
-export default (Vue) => {
-  Vue.prototype.$api = api;
-};
+export default new Octokit();

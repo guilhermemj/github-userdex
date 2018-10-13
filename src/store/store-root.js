@@ -1,4 +1,4 @@
-import api from '@/api';
+import api from '@/plugins/api';
 
 export default {
   state: {
@@ -26,7 +26,9 @@ export default {
       commit('updatePendingState', true);
 
       try {
-        const data = await api.users.getUser(state.searchQuery);
+        const { data } = await api.users.getForUser({
+          username: state.searchQuery,
+        });
 
         commit('updateUserData', data);
       } catch (error) {
