@@ -1,7 +1,7 @@
 {
-  "name": "vuetify-github-explorer",
+  "name": "vuetify-github-userdex",
   "version": "0.1.0",
-  "description": "Github explorer powered by Vuetify",
+  "description": "Github users explorer powered by Vuetify",
   "author": "Guilherme Jacomini <guilhermem.j@hotmail.com>",
   "private": true,
   "scripts": {
@@ -27,7 +27,6 @@
   "dependencies": {
     "@babel/polyfill": "^7.0.0-rc.1",
     "@octokit/rest": "^15.13.1",
-    "axios": "^0.18.0",
     "vue": "^2.5.17",
     "vuetify": "^1.2.0",
     "vuex": "^3.0.1"

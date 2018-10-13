@@ -1,4 +1,5 @@
-# vuetify-github-api-fetcher
+Vuetify Github Userdex
+========================
 
 ## Project setup
 ```
@@ -24,3 +25,8 @@ npm run lint
 ```
 npm run test:unit
 ```
+
+Legal disclaimer
+------------------
+
+Icons made by [Pixel perfect](https://www.flaticon.com/authors/pixel-perfect) from [www.flaticon.com](https://www.flaticon.com/) is licensed by [CC 3.0 BY](http://creativecommons.org/licenses/by/3.0/).

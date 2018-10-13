@@ -1,11 +1,11 @@
 <template>
   <v-toolbar color="#24292e" dark app>
-    <v-icon class="mr-3">
-      map
-    </v-icon>
+    <v-avatar tile size="32" class="mr-3 pb-1">
+      <img src="@/assets/logo-white.png" alt="">
+    </v-avatar>
 
     <h1 class="title mr-3">
-      Github Explorer
+      GitHub Userdex
     </h1>
 
     <v-spacer />
