@@ -3,7 +3,7 @@
     <the-toolbar />
 
     <v-content>
-      <v-container fluid>
+      <v-container fluid grid-list-lg>
         <the-content />
       </v-container>
     </v-content>

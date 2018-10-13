@@ -9,7 +9,7 @@
     :disabled="isFetching"
     :loading="isFetching"
 
-    v-model="localSearchQuery"
+    v-model.trim="localSearchQuery"
     @change="searchUser"
     @click:append="searchUser"
   />
