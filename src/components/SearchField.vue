@@ -10,8 +10,8 @@
     :loading="isFetching"
 
     v-model.trim="localSearchQuery"
-    @change="searchUser"
-    @click:append="searchUser"
+    @change="handleSearch"
+    @click:append="handleSearch"
   />
 </template>
 
@@ -46,6 +46,14 @@ export default {
     ...mapActions({
       searchUser: 'searchUser',
     }),
+
+    handleSearch() {
+      if (!this.searchQuery) {
+        return;
+      }
+
+      this.searchUser();
+    },
   },
 };
 </script>

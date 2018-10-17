@@ -17,7 +17,7 @@
         </p>
 
         <p class="mb-0" v-if="userData.location">
-          <v-icon small class="mr-1">
+          <v-icon small>
             location_on
           </v-icon>
 
@@ -27,7 +27,7 @@
         </p>
 
         <p class="mb-0" v-if="userData.email">
-          <v-icon small class="mr-1">
+          <v-icon small>
             email
           </v-icon>
 
@@ -38,7 +38,7 @@
       </v-flex>
     </v-layout>
 
-    <p class="caption text-xs-justify" v-if="userData.bio">
+    <p class="caption mb-0 text-xs-justify" v-if="userData.bio">
       {{userData.bio}}
     </p>
   </div>
