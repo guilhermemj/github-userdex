@@ -3,38 +3,48 @@
     <empty-state v-if="userIsEmpty" />
 
     <v-layout wrap v-else>
-      <v-flex xs12 md4 class="mb-2">
+      <v-flex xs12 md4 lg3 class="mb-2">
         <user-info-card :user-data="userData" />
       </v-flex>
 
-      <v-flex xs12 md8>
-        <v-card class="mb-3">
-          <v-card-title>
-            <p class="title">
-              Repositórios
+      <v-flex xs12 md8 lg9>
+        <v-tabs class="main-tabs" color="transparent">
+          <v-tab>
+            Repositories
 
-              <v-chip small>{{userData.public_repos}}</v-chip>
-            </p>
-          </v-card-title>
+            <v-chip small disabled>
+              {{userData.public_repos}}
+            </v-chip>
+          </v-tab>
 
-          <v-card-text>
-            <p>lorem</p>
-          </v-card-text>
-        </v-card>
+          <v-tab-item>
+            lorem ipsum
+          </v-tab-item>
 
-        <v-card class="mb-3">
-          <v-card-title>
-            <p class="title">
-              Gists
+          <v-tab>
+            Gists
 
-              <v-chip small>{{userData.public_gists}}</v-chip>
-            </p>
-          </v-card-title>
+            <v-chip small disabled>
+              {{userData.public_gists}}
+            </v-chip>
+          </v-tab>
 
-          <v-card-text>
-            <p>lorem</p>
-          </v-card-text>
-        </v-card>
+          <v-tab>
+            Followers
+
+            <v-chip small disabled>
+              {{userData.followers}}
+            </v-chip>
+          </v-tab>
+
+          <v-tab>
+            Following
+
+            <v-chip small disabled>
+              {{userData.following}}
+            </v-chip>
+          </v-tab>
+        </v-tabs>
       </v-flex>
     </v-layout>
   </div>
@@ -66,3 +76,9 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+  .main-tabs .v-tabs__wrapper {
+    border-bottom: 1px solid #ddd;
+  }
+</style>
