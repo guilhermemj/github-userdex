@@ -24,7 +24,7 @@ export default {
   computed: {
     ...mapState({
       searchQuery: state => state.searchQuery,
-      isFetching: state => state.pending,
+      isFetching: state => state.userInfo.pending,
     }),
 
     localSearchQuery: {
@@ -44,11 +44,13 @@ export default {
     }),
 
     ...mapActions({
-      searchUser: 'searchUser',
+      searchUser: 'userInfo/searchUser',
+      clearUser: 'clearUser',
     }),
 
     handleSearch() {
       if (!this.searchQuery) {
+        this.clearUser();
         return;
       }
 

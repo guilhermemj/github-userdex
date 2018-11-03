@@ -4,7 +4,7 @@
 
     <v-layout wrap v-else>
       <v-flex xs12 md4 lg3 class="mb-2">
-        <user-info-card :user-data="userData" />
+        <user-info-card :user-data="userInfo" />
       </v-flex>
 
       <v-flex xs12 md8 lg9>
@@ -13,37 +13,49 @@
             Repositories
 
             <v-chip small disabled>
-              {{userData.public_repos}}
+              {{userInfo.public_repos}}
             </v-chip>
           </v-tab>
 
           <v-tab-item>
-            lorem ipsum
+            lorem
           </v-tab-item>
 
           <v-tab>
             Gists
 
             <v-chip small disabled>
-              {{userData.public_gists}}
+              {{userInfo.public_gists}}
             </v-chip>
           </v-tab>
+
+          <v-tab-item>
+            ipsum
+          </v-tab-item>
 
           <v-tab>
             Followers
 
             <v-chip small disabled>
-              {{userData.followers}}
+              {{userInfo.followers}}
             </v-chip>
           </v-tab>
+
+          <v-tab-item>
+            dolor
+          </v-tab-item>
 
           <v-tab>
             Following
 
             <v-chip small disabled>
-              {{userData.following}}
+              {{userInfo.following}}
             </v-chip>
           </v-tab>
+
+          <v-tab-item>
+            sit
+          </v-tab-item>
         </v-tabs>
       </v-flex>
     </v-layout>
@@ -66,12 +78,11 @@ export default {
 
   computed: {
     ...mapState({
-      isLoading: state => state.pending,
-      userData: state => state.userData,
+      userInfo: state => state.userInfo.data,
     }),
 
     userIsEmpty() {
-      return !Object.keys(this.userData).length;
+      return !Object.keys(this.userInfo).length;
     },
   },
 };
