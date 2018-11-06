@@ -44,13 +44,14 @@ export default {
     }),
 
     ...mapActions({
-      searchUser: 'userInfo/searchUser',
-      clearUser: 'clearUser',
+      searchUser: 'userInfo/fetchData',
+      clearData: 'clearData',
     }),
 
     handleSearch() {
+      this.clearData();
+
       if (!this.searchQuery) {
-        this.clearUser();
         return;
       }
 

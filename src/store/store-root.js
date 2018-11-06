@@ -10,8 +10,9 @@ export default {
   },
 
   actions: {
-    clearUser({ commit }) {
-      commit('userInfo/updateUserInfo', {});
+    clearData({ commit }) {
+      commit('userInfo/updateData', {});
+      commit('repos/updateData', []);
     },
   },
 };

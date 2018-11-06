@@ -5,7 +5,7 @@ export default {
 
   state: {
     pending: false,
-    data: {},
+    data: [],
   },
 
   mutations: {
@@ -13,21 +13,21 @@ export default {
       localState.pending = newValue;
     },
 
-    updateUserInfo(localState, newValue) {
+    updateData(localState, newValue) {
       localState.data = newValue;
     },
   },
 
   actions: {
-    async searchUser({ commit, rootState }) {
+    async fetchData({ commit, rootState }) {
       commit('updatePendingState', true);
 
       try {
-        const { data } = await api.users.getForUser({
+        const { data } = await api.repos.getForUser({
           username: rootState.searchQuery,
         });
 
-        commit('updateUserInfo', data);
+        commit('updateData', data);
       } catch (error) {
         throw new Error(error);
       } finally {
