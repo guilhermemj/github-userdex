@@ -9,9 +9,9 @@
         <v-tab @click="updateRepos">
           Repositories
 
-          <span class="grey lighten-2 px-2 py-1 ml-2" style="border-radius: 12px; font-size: .8em;">
+          <user-content-tab-badge>
             {{userInfo.public_repos}}
-          </span>
+          </user-content-tab-badge>
         </v-tab>
 
         <v-tab-item>
@@ -39,23 +39,11 @@
         </v-tab-item>
 
         <v-tab>
-          Gists
-
-          <span class="grey lighten-2 px-2 py-1 ml-2" style="border-radius: 12px; font-size: .8em;">
-            {{userInfo.public_gists}}
-          </span>
-        </v-tab>
-
-        <v-tab-item>
-          ipsum
-        </v-tab-item>
-
-        <v-tab>
           Followers
 
-          <span class="grey lighten-2 px-2 py-1 ml-2" style="border-radius: 12px; font-size: .8em;">
+          <user-content-tab-badge>
             {{userInfo.followers}}
-          </span>
+          </user-content-tab-badge>
         </v-tab>
 
         <v-tab-item>
@@ -65,9 +53,9 @@
         <v-tab>
           Following
 
-          <span class="grey lighten-2 px-2 py-1 ml-2" style="border-radius: 12px; font-size: .8em;">
+          <user-content-tab-badge>
             {{userInfo.following}}
-          </span>
+          </user-content-tab-badge>
         </v-tab>
 
         <v-tab-item>
@@ -81,6 +69,7 @@
 <script>
 import { mapState, mapActions } from 'vuex';
 
+import UserContentTabBadge from './UserContentTabBadge.vue';
 import UserInfoCard from './UserInfoCard.vue';
 import RepoInfoCard from './RepoInfoCard.vue';
 
@@ -88,6 +77,7 @@ export default {
   name: 'UserContent',
 
   components: {
+    UserContentTabBadge,
     UserInfoCard,
     RepoInfoCard,
   },
@@ -95,7 +85,10 @@ export default {
   data() {
     return {
       activeTab: 0,
+
       hasFetchedRepos: false,
+      hasFetchedFollowers: false,
+      hasFetchedFollowing: false,
     };
   },
 
