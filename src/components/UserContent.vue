@@ -70,7 +70,7 @@
           </v-container>
         </v-tab-item>
 
-        <v-tab>
+        <v-tab @click="updateFollowing">
           Following
 
           <user-content-tab-badge>
@@ -79,7 +79,27 @@
         </v-tab>
 
         <v-tab-item>
-          sit
+          <v-progress-linear
+            indeterminate
+            color="grey"
+            class="ma-0"
+            height="2"
+            v-if="pendingFollowing"
+          />
+
+          <template v-if="!following.length">
+            <p>No info to show.</p>
+          </template>
+
+          <v-container class="px-0">
+            <v-layout wrap>
+              <template v-for="item of following">
+                <v-flex xs12 sm6 md4 :key="item.id">
+                  <user-info-card :user-data="item" />
+                </v-flex>
+              </template>
+            </v-layout>
+          </v-container>
         </v-tab-item>
       </v-tabs>
     </v-flex>
@@ -121,6 +141,9 @@ export default {
 
       pendingFollowers: state => state.followers.pending,
       followers: state => state.followers.data,
+
+      pendingFollowing: state => state.following.pending,
+      following: state => state.following.data,
     }),
   },
 
@@ -132,6 +155,7 @@ export default {
     ...mapActions({
       fetchRepos: 'repos/fetchData',
       fetchFollowers: 'followers/fetchData',
+      fetchFollowing: 'following/fetchData',
     }),
 
     updateRepos() {
@@ -150,6 +174,15 @@ export default {
 
       this.fetchFollowers();
       this.hasFetchedFollowers = true;
+    },
+
+    updateFollowing() {
+      if (this.hasFetchedFollowing) {
+        return;
+      }
+
+      this.fetchFollowing();
+      this.hasFetchedFollowing = true;
     },
   },
 };
