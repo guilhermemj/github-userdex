@@ -13,6 +13,7 @@ export default {
     clearData({ commit }) {
       commit('userInfo/updateData', {});
       commit('repos/updateData', []);
+      commit('followers/updateData', []);
     },
   },
 };

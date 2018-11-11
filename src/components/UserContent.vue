@@ -20,7 +20,7 @@
             color="grey"
             class="ma-0"
             height="2"
-            v-if="pendingRepos"
+            v-if="pendingRepositories"
           />
 
           <template v-if="!repositories.length">
@@ -38,7 +38,7 @@
           </v-container>
         </v-tab-item>
 
-        <v-tab>
+        <v-tab @click="updateFollowers">
           Followers
 
           <user-content-tab-badge>
@@ -47,7 +47,27 @@
         </v-tab>
 
         <v-tab-item>
-          dolor
+          <v-progress-linear
+            indeterminate
+            color="grey"
+            class="ma-0"
+            height="2"
+            v-if="pendingFollowers"
+          />
+
+          <template v-if="!followers.length">
+            <p>No info to show.</p>
+          </template>
+
+          <v-container class="px-0">
+            <v-layout wrap>
+              <template v-for="item of followers">
+                <v-flex xs12 sm6 md4 :key="item.id">
+                  <user-info-card :user-data="item" />
+                </v-flex>
+              </template>
+            </v-layout>
+          </v-container>
         </v-tab-item>
 
         <v-tab>
@@ -96,8 +116,11 @@ export default {
     ...mapState({
       userInfo: state => state.userInfo.data,
 
-      pendingRepos: state => state.repos.pending,
+      pendingRepositories: state => state.repos.pending,
       repositories: state => state.repos.data,
+
+      pendingFollowers: state => state.followers.pending,
+      followers: state => state.followers.data,
     }),
   },
 
@@ -108,6 +131,7 @@ export default {
   methods: {
     ...mapActions({
       fetchRepos: 'repos/fetchData',
+      fetchFollowers: 'followers/fetchData',
     }),
 
     updateRepos() {
@@ -117,6 +141,15 @@ export default {
 
       this.fetchRepos();
       this.hasFetchedRepos = true;
+    },
+
+    updateFollowers() {
+      if (this.hasFetchedFollowers) {
+        return;
+      }
+
+      this.fetchFollowers();
+      this.hasFetchedFollowers = true;
     },
   },
 };

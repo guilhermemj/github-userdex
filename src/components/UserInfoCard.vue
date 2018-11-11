@@ -9,7 +9,9 @@
 
       <v-flex>
         <p class="title mb-0">
-          {{userData.name}}
+          <a :href="userData.html_url" style="text-decoration: none;">
+            {{userData.name}}
+          </a>
         </p>
 
         <p class="subheading mb-2">
