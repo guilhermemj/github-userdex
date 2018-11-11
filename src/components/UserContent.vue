@@ -63,7 +63,7 @@
             <v-layout wrap>
               <template v-for="item of followers">
                 <v-flex xs12 sm6 md4 :key="item.id">
-                  <user-info-card :user-data="item" />
+                  <user-info-card-simple :user-data="item" />
                 </v-flex>
               </template>
             </v-layout>
@@ -95,7 +95,7 @@
             <v-layout wrap>
               <template v-for="item of following">
                 <v-flex xs12 sm6 md4 :key="item.id">
-                  <user-info-card :user-data="item" />
+                  <user-info-card-simple :user-data="item" />
                 </v-flex>
               </template>
             </v-layout>
@@ -111,6 +111,7 @@ import { mapState, mapActions } from 'vuex';
 
 import UserContentTabBadge from './UserContentTabBadge.vue';
 import UserInfoCard from './UserInfoCard.vue';
+import UserInfoCardSimple from './UserInfoCardSimple.vue';
 import RepoInfoCard from './RepoInfoCard.vue';
 
 export default {
@@ -119,6 +120,7 @@ export default {
   components: {
     UserContentTabBadge,
     UserInfoCard,
+    UserInfoCardSimple,
     RepoInfoCard,
   },
 
