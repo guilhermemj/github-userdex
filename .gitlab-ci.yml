@@ -1,0 +1,26 @@
+stages:
+  - test
+  - build
+  - deploy
+
+cache:
+  key: $CI_PROJECT_NAME
+  paths:
+    - node_modules/
+
+# Gitlab Pages Job
+pages:
+  image: node:latest
+  stage: deploy
+  script:
+    - npm i
+    - echo "BASE_URL = /${CI_PROJECT_NAME}/" > .env
+    - npm run build
+    # Rename folders after build as GitLab Pages hooks on the public folder
+    - mv public public-vue
+    - mv dist public
+  artifacts:
+    paths:
+      - public
+  only:
+    - master
